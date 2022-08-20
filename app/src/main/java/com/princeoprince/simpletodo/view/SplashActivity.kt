@@ -8,12 +8,13 @@ import android.os.Looper
 import android.view.Window
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
-import androidx.core.view.WindowInsetsControllerCompat
 import com.princeoprince.simpletodo.databinding.ActivitySplashBinding
 
 class SplashActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivitySplashBinding
+    private lateinit var handler: Handler
+    private lateinit var runnable: Runnable
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,29 +28,29 @@ class SplashActivity : AppCompatActivity() {
     }
 
     private fun makeFullScreen() {
-        // Remote title
         requestWindowFeature(Window.FEATURE_NO_TITLE)
-
-        hideSystemUI()
-
-        // Hide the toolbar
+        hideStatusBar()
         supportActionBar?.hide()
 
     }
 
-    private fun hideSystemUI() {
-        WindowCompat.setDecorFitsSystemWindows(window, false)
-        WindowInsetsControllerCompat(window, window.decorView).let {
-            it.hide(WindowInsetsCompat.Type.systemBars())
-            it.systemBarsBehavior = WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
-        }
+    private fun hideStatusBar() {
+        WindowCompat.getInsetsController(window, window.decorView)
+            ?.hide(WindowInsetsCompat.Type.statusBars() or
+                    WindowInsetsCompat.Type.navigationBars())
     }
 
     private fun delayActivity() {
-        Handler(Looper.getMainLooper()).postDelayed({
+        handler = Handler(Looper.getMainLooper())
+        runnable = Runnable {
             startActivity(Intent(this, MainActivity::class.java))
             overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
-            finish()
-        }, 2000)
+            finish() }
+        handler.postDelayed(runnable,2000)
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        handler.removeCallbacks(runnable)
     }
 }
