@@ -6,4 +6,10 @@
     <string name="read">Open</string>
     <string name="write">Save</string>
     <string name="delete">Delete</string>
+    <string name="edit_todo">Edit ToDo</string>
+    <string name="delete_todo">Delete ToDo</string>
+    <string name="update_todo">Update To Do Item</string>
+    <string name="update">Update</string>
+    <string name="add_todo">Add To Do Item</string>
+    <string name="cancel">Cancel</string>
 </resources>

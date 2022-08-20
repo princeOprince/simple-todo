@@ -3,7 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/princ/Projects/Android-Kotlin/SimpleToDo/app/src/main/res/layout/activity_main.xml" value="0.22552083333333334" />
         <entry key="..\:/Users/princ/Projects/Android-Kotlin/SimpleToDo/app/src/main/res/layout/activity_splash.xml" value="0.30520833333333336" />
+        <entry key="..\:/Users/princ/Projects/Android-Kotlin/SimpleToDo/app/src/main/res/layout/dialog_to_do_item.xml" value="0.22447916666666667" />
+        <entry key="..\:/Users/princ/Projects/Android-Kotlin/SimpleToDo/app/src/main/res/layout/to_do_list_item.xml" value="0.22447916666666667" />
       </map>
     </option>
   </component>
