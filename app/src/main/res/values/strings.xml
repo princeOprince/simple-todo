@@ -11,5 +11,6 @@
     <string name="update_todo">Update To Do Item</string>
     <string name="update">Update</string>
     <string name="add_todo">Add To Do Item</string>
+    <string name="add">Add</string>
     <string name="cancel">Cancel</string>
 </resources>
